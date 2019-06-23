@@ -9,6 +9,7 @@ export default StyleSheet.create({
   },
 
   triangle: {
+    backgroundColor: '#88cc00',
     width: 8,
     height: 8,
     transform: [{
@@ -52,7 +53,7 @@ export default StyleSheet.create({
   },
 
   item: {
-    textAlign: 'left',
+    textAlign: 'right',
   },
 
   scroll: {
