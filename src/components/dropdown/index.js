@@ -246,8 +246,7 @@ export default class Dropdown extends PureComponent {
 
             /* Adjust coordinates for relative layout in RTL locale */
             if (I18nManager.isRTL && !absoluteRTLLayout) {
-                // x = dimensions.width - (x + containerWidth);
-                x = 10;
+                x = dimensions.width - (x + containerWidth);
             }
 
             let delay = Math.max(0, rippleDuration - animationDuration - (Date.now() - timestamp));
@@ -513,9 +512,7 @@ export default class Dropdown extends PureComponent {
                 onChangeText={undefined}
                 renderAccessory={renderAccessory}
                 lineWidth={0}
-                // titleTextStyle={style={textAlign: 'right'}}
-                labelTextStyle={{color: 'orange', textAlign: 'center'}}
-                style={{textAlign: 'left', paddingTop: 5}}
+                style={{textAlign: 'left', paddingLeft: 5}}
             />
         );
     }
@@ -558,7 +555,7 @@ export default class Dropdown extends PureComponent {
         return (
             <View style={styles.accessory}>
                 <View style={styles.triangleContainer}>
-                    <View style={[styles.triangle/*, triangleStyle*/]}/>
+                    <View style={[styles.triangle]}/>
                 </View>
             </View>
         );
