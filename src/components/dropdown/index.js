@@ -227,9 +227,6 @@ export default class Dropdown extends PureComponent {
             /* Adjust event location */
             event.nativeEvent.locationY -= this.rippleInsets().top;
             event.nativeEvent.locationX -= this.rippleInsets().left;
-
-            /* Start ripple directly from event */
-            this.ripple.startRipple(event);
         }
 
         if (!itemCount) {
@@ -734,7 +731,6 @@ export default class Dropdown extends PureComponent {
                 <TouchableWithoutFeedback {...touchableProps}>
                     <View pointerEvents='box-only'>
                         {this.renderBase(props)}
-                        {this.renderRipple()}
                     </View>
                 </TouchableWithoutFeedback>
 
