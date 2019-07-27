@@ -134,6 +134,7 @@ export default class Dropdown extends PureComponent {
         baseColor: PropTypes.string,
 
         itemTextStyle: Text.propTypes.style,
+        headerTextStyle: Text.propTypes.style,
 
         itemCount: PropTypes.number,
         itemPadding: PropTypes.number,
@@ -188,7 +189,7 @@ export default class Dropdown extends PureComponent {
         };
     }
 
-    componentWillReceiveProps({value}) {
+    UNSAFE_componentWillReceiveProps({value}) {
         if (value !== this.props.value) {
             this.setState({value});
         }
@@ -477,8 +478,9 @@ export default class Dropdown extends PureComponent {
             data,
             renderBase,
             labelExtractor,
-            dropdownOffset,
+            // dropdownOffset,
             renderAccessory = this.renderAccessory,
+            headerTextStyle,
         } = this.props;
 
         let index = this.selectedIndex();
@@ -512,7 +514,7 @@ export default class Dropdown extends PureComponent {
                 onChangeText={undefined}
                 renderAccessory={renderAccessory}
                 lineWidth={0}
-                style={{textAlign: 'left', paddingLeft: 5}}
+                style={headerTextStyle}
             />
         );
     }
@@ -550,7 +552,7 @@ export default class Dropdown extends PureComponent {
 
     renderAccessory() {
         let {baseColor: backgroundColor} = this.props;
-        let triangleStyle = {backgroundColor};
+        // let triangleStyle = {backgroundColor};
 
         return (
             <View style={styles.accessory}>
