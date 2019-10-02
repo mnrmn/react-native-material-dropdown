@@ -136,6 +136,9 @@ export default class Dropdown extends PureComponent {
         itemTextStyle: Text.propTypes.style,
         headerTextStyle: Text.propTypes.style,
 
+        rippleContainerBorderRadius: PropTypes.number,
+        shadeBorderRadius: PropTypes.number,
+
         itemCount: PropTypes.number,
         itemPadding: PropTypes.number,
 
@@ -630,7 +633,12 @@ export default class Dropdown extends PureComponent {
         ];
 
         return (
-            <DropdownItem index={index} {...props}>
+            <DropdownItem
+                index={index}
+                {...props}
+                rippleContainerBorderRadius={this.props.rippleContainerBorderRadius}
+                shadeBorderRadius={this.props.shadeBorderRadius}
+            >
                 <Text style={[styles.item, itemTextStyle, textStyle]} numberOfLines={1}>
                     {title}
                 </Text>
